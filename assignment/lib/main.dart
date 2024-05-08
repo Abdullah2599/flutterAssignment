@@ -6,93 +6,77 @@ void main() {
 
 class FirstPage extends StatelessWidget {
   const FirstPage({super.key});
-  Widget _buildGrid() => GridView.extent(
-      maxCrossAxisExtent: 120,
-      padding: const EdgeInsets.all(12),
+  Widget _buildGrid() {
+    List<Widget> images = [
+      Image.network(
+        'https://thumbs.dreamstime.com/b/purple-gerbera-flower-white-isolated-background-clipping-path-closeup-no-shadows-design-nature-92549587.jpg',
+        fit: BoxFit.cover,
+      ),
+      Image.network(
+        'https://t4.ftcdn.net/jpg/01/75/99/65/360_F_175996511_5m91s18CfsEkFxqwx8zCQNIlmxTmqj5m.jpg',
+        fit: BoxFit.cover,
+      ),
+      Image.network(
+        'https://www.bhmpics.com/downloads/flowers-with-white-background/34.dahlia-light-blue-flower-white-isolated-background-clipping-path-closeup-no-shadows-garden-flower-dahlia-light-blue-109559727.jpg',
+        fit: BoxFit.cover,
+      ),
+      Image.network(
+        'https://t4.ftcdn.net/jpg/02/22/32/45/360_F_222324557_ubu2M3Bkh5Yo4fc9jqlJGwddEi0wtfVd.jpg',
+        fit: BoxFit.cover,
+      ),
+      Image.network(
+        'https://img.freepik.com/premium-photo/yellow-flowers-isolated-white-background_1000714-1105.jpg',
+        fit: BoxFit.cover,
+      ),
+      Image.network(
+        'https://static.vecteezy.com/system/resources/previews/002/601/548/large_2x/pink-flower-isolate-white-background-photo.jpg',
+        fit: BoxFit.cover,
+      ),
+      Image.network(
+        'https://thumbs.dreamstime.com/b/red-brown-dahlia-flower-white-isolated-background-clipping-path-design-closeup-nature-red-brown-dahlia-flower-125587801.jpg',
+        fit: BoxFit.cover,
+      ),
+      Image.network(
+        'https://media.istockphoto.com/id/500306545/photo/decorative-daisy-bright-orange-color.jpg?s=612x612&w=0&k=20&c=j1PxZmSNXfvXhUWOfzfF_nLe8KYimcEaW0RfTh65PJU=',
+        fit: BoxFit.cover,
+      ),
+      Image.network(
+        'https://www.bhmpics.com/downloads/flowers-with-white-background/34.dahlia-light-blue-flower-white-isolated-background-clipping-path-closeup-no-shadows-garden-flower-dahlia-light-blue-109559727.jpg',
+        fit: BoxFit.cover,
+      ),
+      Image.network(
+        'https://www.bhmpics.com/downloads/flowers-with-white-background/34.dahlia-light-blue-flower-white-isolated-background-clipping-path-closeup-no-shadows-garden-flower-dahlia-light-blue-109559727.jpg',
+        fit: BoxFit.cover,
+      ),
+    ];
+
+    return GridView.extent(
+      maxCrossAxisExtent: 200,
+      padding: const EdgeInsets.all(7),
       mainAxisSpacing: 4,
       crossAxisSpacing: 4,
-      children: _buildGridTileList(30));
-
-  List<Widget> _buildGridTileList(int count) => List.generate(
-      count,
-      (i) => Image.network(
-            'https://via.placeholder.com/100x100?text=Image$i',
-            fit: BoxFit.cover,
-          ));
+      children: images,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        theme: ThemeData(brightness: Brightness.dark),
+        theme: ThemeData(
+            brightness: Brightness.light,
+            colorScheme: const ColorScheme.highContrastLight(
+                background: Color.fromARGB(255, 148, 207, 255))),
         home: Scaffold(
           appBar: AppBar(
-            title: const Text('Widget.title'),
+            backgroundColor: Colors.blueAccent,
+            title: const Text(
+              'Flowers',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
           ),
           body: Center(
             child: _buildGrid(),
-            // child: Column(
-            //  mainAxisSize: MainAxisSize.min,
-
-            //   children: [
-            //     SafeArea(
-
-            //         child: Container(
-            //           height: 100.0,
-            //           width: 100.0,
-            //           color: Colors.green,
-
-            //     ),
-
-            //             ),
-            //           const SecondPage(),
-            //   ],
-            // ),
           ),
         ));
   }
 }
-
-
-// class GridApp extends StatelessWidget {
-//   const GridApp({super.key});
-// Widget _buildGrid() => GridView.extent(
-//    maxCrossAxisExtent: 150,
-//    padding:const EdgeInsets.all(4),
-//    mainAxisSpacing: 4,
-//    crossAxisSpacing: 4,
-//    children: 
-//     _buildGridTileList(10));
-   
-//    List<Container> _buildGridTileList(int count) => List.generate(
-//    count,
-//    (i)=> Container(
-//     width: 100,
-//     height: 100,
-//     color: Colors.blue,
-//    )
-//    );
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return const Placeholder();
-//   }
-// }
-
-
-// class SecondPage extends StatefulWidget{
-//   const SecondPage({super.key});
-//   @override
-//   State<SecondPage> createState() {
-//      return _SecondPageState();    
-//   }
-// }
-
-// class _SecondPageState extends State<SecondPage>{
-//   @override
-//   Widget build(BuildContext context) {
-//      return SizedBox(
-//       height: 100,
-//       child: Image.asset('images/quiz-logo.png'),
-//      );    
-//   }
-// }
