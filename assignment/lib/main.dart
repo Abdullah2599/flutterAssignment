@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
-  runApp(const FirstPage());
+  runApp(const MyWidget());
 }
 
 class FirstPage extends StatelessWidget {
@@ -52,7 +53,7 @@ class FirstPage extends StatelessWidget {
 
     return GridView.extent(
       maxCrossAxisExtent: 200,
-      padding: const EdgeInsets.all(7),
+      padding: const EdgeInsets.all(4),
       mainAxisSpacing: 4,
       crossAxisSpacing: 4,
       children: images,
@@ -69,6 +70,7 @@ class FirstPage extends StatelessWidget {
         home: Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.blueAccent,
+            
             title: const Text(
               'Flowers',
               style: TextStyle(fontWeight: FontWeight.bold),
@@ -77,6 +79,50 @@ class FirstPage extends StatelessWidget {
           body: Center(
             child: _buildGrid(),
           ),
+
         ));
+  }
+}
+
+
+class MyWidget extends StatelessWidget {
+  const MyWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        
+        
+          body: Column(
+            
+            children: [
+              Padding(
+                padding: const EdgeInsetsDirectional.all(12.0),
+                child: Row(
+                          children: [
+                            Expanded(
+                              child: TextFormField(
+                                keyboardType: TextInputType.name,
+                               
+                                decoration: const InputDecoration(hintText: "First Name"),
+                              ),
+                            ),
+                            const SizedBox(width: 16),
+                            Expanded(
+                              child: TextFormField(
+                                keyboardType: TextInputType.name,
+                                decoration:
+                                    const InputDecoration(hintText: "Last Name"),
+                              ),
+                            ),
+                          ],
+                        ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
